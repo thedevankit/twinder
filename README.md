@@ -1,6 +1,7 @@
 # Twinder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
+This is a project which will show tweets from twitter in Tinder like UI.
+
 
 ## Development server
 
