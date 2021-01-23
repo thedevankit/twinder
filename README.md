@@ -1,11 +1,10 @@
 <h1 align="center">Twinder</h1>
 
 <p align="center">
-  An app to access infromation, memes, tech updates, tech trending tweets with different hashtag's like 100DaysofCode with geasture navigation built on Web Components and Web Animations using Angular.
+  An app to access information, memes, tech updates, tech trending tweets with different hashtag's like 100DaysofCode with gesture navigation built on Web Components and Web Animations using Angular.
 </p>
 
 <br />
-
 ## Demos
 
 |[<img src="https://i.imgur.com/PWBviOu.png?1" height="24"/>]() <br/> Angular |
@@ -25,12 +24,11 @@ npm install
 
 ## 💡 What's the prupose of it?
 
-I love to learn and build, so, this every time I have free time, pick some crazy idea or got inspiration from another projects and make it. With this project we will connect teches with tech twitter accounts and tweets  😋
+I love to learn and build, so, this every time I have free time, pick some crazy idea or got inspiration from another projects and make it. With this project we will connect techies with tech twitter accounts and tweets  😋
 
 ## 🦄 Inspiration
 
-When I saw dating apps like #Tinder and others are getting more popular becouse of easy to used interface and gesture then i thought to connect great information with an easy to use interface like tinder and this comes up !! 😃 
-
+When I saw dating apps like #Tinder and others are getting more popular because of easy to used interface and gesture then i thought to connect great information with an easy to use interface like tinder and this comes up !! 😃 
 
 ## 🚧 Roadmap
 
@@ -39,7 +37,7 @@ When I saw dating apps like #Tinder and others are getting more popular becouse 
 - [x] Adding development
 - [x] To fetch tweets from twitter
 - [x] Designing mock-up
-- [x] Designing infromation flow
+- [x] Designing information flow
 - [x] Design the ui
 - [ ] Add mobile swipe support
 - [ ] Add transition effects for stories
