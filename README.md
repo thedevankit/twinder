@@ -1,4 +1,4 @@
-<h1 align="center">Twinder [<img src="https://i.imgur.com/PWBviOu.png?1" height="24"/>]()</h1>
+<h1 align="center">Twinder <img src="https://i.imgur.com/PWBviOu.png?1" height="24"/></h1>
 
 <p align="center">
   An app to access information, memes, tech updates, tech trending tweets with different hashtag's like 100DaysofCode with gesture navigation built on Web Components and Web Animations using Angular.
