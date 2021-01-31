@@ -16,7 +16,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatChipsModule} from '@angular/material/chips'
+import {MatChipsModule} from '@angular/material/chips';
+
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { HammertimeDirective } from './shared/hammertime.directive';
@@ -56,7 +58,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     HammerModule,
     HttpClientModule,
     MatChipsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    MatProgressSpinnerModule
   ],
   providers: [   {
     provide: HAMMER_GESTURE_CONFIG,

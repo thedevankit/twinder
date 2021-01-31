@@ -18,7 +18,7 @@ export class TwitterService {
   constructor(private http: HttpClient) { }
 
   getlocation( lng : number, lat: number): Observable<any>{
-    return this.http.get(this.zomatoLocationres + lat +'&lon='+ lng +'&radius=500', httpOptions);
+    return this.http.get(this.zomatoLocationres + lat +'&lon='+ lng +'&radius=2000', httpOptions);
   }
 
   getTweets(): Observable<any> {
