@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, EventEmitter, Output, Renderer2} from '@angular/core';
+import { IRootObject } from '../model/local';
 
 @Component({
   selector: 'app-tinder-ui',
@@ -6,11 +7,7 @@ import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, EventEmi
   styleUrls: ['./tinder-ui.component.scss']
 })
 export class TinderUiComponent  {
-  @Input('cards') cards!: Array<{
-    img: string,
-    title: string,
-    description: string
-  }>;
+  @Input('restaurant') allRestaurant: IRootObject; 
 
   @ViewChildren('tinderCard') tinderCards!: QueryList<ElementRef>;
   tinderCardsArray!: Array<ElementRef>;
@@ -28,15 +25,15 @@ export class TinderUiComponent  {
 
   userClickedButton(event: any, heart: any) {
     event.preventDefault();
-    if (!this.cards.length) return false;
+    if (!this.allRestaurant.restaurants.length) return false;
     if (heart) {
       this.renderer.setStyle(this.tinderCardsArray[0].nativeElement, 'transform', 'translate(' + this.moveOutWidth + 'px, -100px) rotate(-30deg)');
       this.toggleChoiceIndicator(false,true);
-      this.emitChoice(heart, this.cards[0]);
+      this.emitChoice(heart, this.allRestaurant.restaurants[0]);
     } else {
       this.renderer.setStyle(this.tinderCardsArray[0].nativeElement, 'transform', 'translate(-' + this.moveOutWidth + 'px, -100px) rotate(30deg)');
       this.toggleChoiceIndicator(true,false);
-      this.emitChoice(heart, this.cards[0]);
+      this.emitChoice(heart, this.allRestaurant.restaurants[0]);
     };
     this.shiftRequired = true;
     this.transitionInProgress = true;
@@ -44,7 +41,7 @@ export class TinderUiComponent  {
 
   handlePan(event: any) {
 
-    if (event.deltaX === 0 || (event.center.x === 0 && event.center.y === 0) || !this.cards.length) return;
+    if (event.deltaX === 0 || (event.center.x === 0 && event.center.y === 0) || !this.allRestaurant.restaurants.length) return;
 
     if (this.transitionInProgress) {
       this.handleShift();
@@ -69,7 +66,7 @@ export class TinderUiComponent  {
 
     this.toggleChoiceIndicator(false,false);
 
-    if (!this.cards.length) return;
+    if (!this.allRestaurant.restaurants.length) return;
 
     this.renderer.removeClass(this.tinderCardsArray[0].nativeElement, 'moving');
 
@@ -93,7 +90,7 @@ export class TinderUiComponent  {
 
       this.shiftRequired = true;
 
-      this.emitChoice(!!(event.deltaX > 0), this.cards[0]);
+      this.emitChoice(!!(event.deltaX > 0), this.allRestaurant.restaurants[0]);
     }
     this.transitionInProgress = true;
   };
@@ -108,7 +105,7 @@ export class TinderUiComponent  {
     this.toggleChoiceIndicator(false,false)
     if (this.shiftRequired) {
       this.shiftRequired = false;
-      this.cards.shift();
+      this.allRestaurant.restaurants.shift();
     };
   };
 
@@ -127,4 +124,49 @@ export class TinderUiComponent  {
     })
   };
 
+  cleandata(array: string[]){
+    const array2 =['Credit Card','Delivery','Debit Card','Lunch', 'Dinner', 'Cash','Digital Payments Accepted',]
+    return array.filter(val => !array2.includes(val));
+  }
+
+  share(){
+    console.log(this.allRestaurant.restaurants[0].restaurant.location.address);
+    
+    if (navigator.share) {
+      navigator.share({
+        title:  this.allRestaurant.restaurants[0].restaurant.name,
+        // url: 'https://codepen.io/ayoisaiah/pen/YbNazJ',
+        text: 'share by'+this.allRestaurant.restaurants[0].restaurant.location.address
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      })
+      .catch(console.error);
+    } else {
+      // fallback
+    }
+  }
 }
+
+// "Dinner",
+//             "Cash",
+//             "Takeaway Available",
+//             "Lunch",
+//             "Delivery",
+//             "Credit Card",
+//             "Debit Card",
+//             "DJ",
+//             "Fullbar",
+//             "Live Music",
+//             "Rooftop",
+//             "Digital Payments Accepted",
+//             "Kid Friendly",
+//             "Smoking Area",
+//             "Buffet",
+//             "Desserts and Bakes",
+//             "Live Sports Screening",
+//             "Outdoor Seating",
+//             "Indoor Seating",
+//             "Table booking recommended",
+//             "Air Conditioned",
+//             "Family Friendly",
+//             "Private Dining Area Available"

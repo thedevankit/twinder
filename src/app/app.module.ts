@@ -16,12 +16,16 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips'
+
 
 import { HammertimeDirective } from './shared/hammertime.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { TinderUiComponent } from './tinder-ui/tinder-ui.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -49,7 +53,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    HammerModule
+    HammerModule,
+    HttpClientModule,
+    MatChipsModule,
+    LazyLoadImageModule
   ],
   providers: [   {
     provide: HAMMER_GESTURE_CONFIG,

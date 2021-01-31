@@ -22,11 +22,8 @@
         </button>
         <span>Twinder</span>
       </mat-toolbar>
-      <!-- <app-info-cards></app-info-cards> -->
    
-      <app-tinder-ui [cards]="cards" (choiceMade)="logChoice($event)"></app-tinder-ui>
-
-      
+      <app-tinder-ui *ngIf="this.rootObject" [restaurant]="this.rootObject" (choiceMade)="logChoice($event)"></app-tinder-ui>
     </mat-sidenav-content>
   </mat-sidenav-container>
   
