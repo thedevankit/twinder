@@ -26,5 +26,17 @@
         ]
       }
     }
+  ],
+  "dataGroups":
+  [
+    {
+      "name": "api",
+      "urls": ["https://developers.zomato.com/api/v2.1/*/**"],
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
